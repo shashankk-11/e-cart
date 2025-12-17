@@ -1,21 +1,22 @@
+import { TocTwoTone } from "@mui/icons-material";
 import "./Product.css";
 
-function Product() {
+function Product({ id, title, price, rating, image }) {
   return (
     <div className="product">
       <div className="product__info">
-        <p className="product__title">Title</p>
+        <p className="product__title">{title}</p>
         <p className="product__price">
-            <small>$</small>
-            <strong>40</strong>
+           <strong>₹{price}</strong>
         </p>
-        <div className="product__rating">⭐⭐⭐⭐</div>
+        <div className="product__rating">
+          {Array(rating).fill().map((_, i) => (
+            <span key={i}>⭐</span>
+          ))}
+        </div>
       </div>
 
-      <img
-        src="https://img.freepik.com/free-photo/bag-hanging-from-furniture-item-indoors_23-2151073506.jpg"
-        alt="product"
-      />
+      <img src={image} alt={title} />
 
       <button>Add to Cart</button>
     </div>
